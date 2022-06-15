@@ -36,5 +36,7 @@ def resistor(r1, r2, r3):
     data = "rt series = {:.2f}".format(rt_series), "rt pararell = {:.2f}".format(rt_pararell)
     return data
 
+print ("test")
+
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)          

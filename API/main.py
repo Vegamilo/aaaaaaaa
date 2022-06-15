@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 import uvicorn
 
-app = FastAPI()
+from action import Action
+a = Action
 
+app = FastAPI()
 
 @app.get("/")
 def read_root():
@@ -36,7 +38,31 @@ def resistor(r1, r2, r3):
     data = "rt series = {:.2f}".format(rt_series), "rt pararell = {:.2f}".format(rt_pararell)
     return data
 
-print ("test")
+@app.get("/get_HW")
+def  getHW():
+    data = a.getHW()
+    return data
+
+@app.get("/update_status_hw")
+def  update_status_hw(ID, status):
+    data = a.updateHW(ID, status)
+    return data
+
+@app.get("/selectidHW")
+def  selectidHW(ID):
+    data = a.selectidHW(ID);
+    return data
+
+@app.get("/insertHW")
+def  insertHW(name, hw_name):
+    data = a.insertHW(name, hw_name)
+    return data
+
+@app.get("/deleteHW")
+def  deleteHW(ID):
+    data = a.ideleteHW(ID)
+    return data
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)          

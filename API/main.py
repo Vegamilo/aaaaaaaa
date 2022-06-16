@@ -43,14 +43,14 @@ def  getHW():
     data = a.getHW()
     return data
 
-@app.get("/update_status_hw")
-def  update_status_hw(ID, status):
-    data = a.updateHW(ID, status)
+@app.get("/updatehw")
+def  updatehw(status, value):
+    data = a.updateHW(status, value)
     return data
 
 @app.get("/selectidHW")
 def  selectidHW(ID):
-    data = a.selectidHW(ID);
+    data = a.selectidHW(ID)
     return data
 
 @app.get("/insertHW")

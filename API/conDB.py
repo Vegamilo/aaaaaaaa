@@ -39,10 +39,10 @@ class Con:
         mydb.close()
         return ID
     
-    def updateHW(ID, status):
+    def updateHW(status, value):
         mydb = conDB()
         mycursor = mydb.cursor(dictionary=True)
-        sql = "UPDATE hard_ware SET status = '{}' WHERE id = {}".format(status,ID)
+        sql = "UPDATE hard_ware SET (status, value) = '{}', '{}'  WHERE id = {}".format(status, val)
         mycursor.execute(sql)
         mydb.commit()
         mycursor.close()
